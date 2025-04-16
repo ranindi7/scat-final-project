@@ -81,14 +81,18 @@ def main():
         lib_user = LibraryUser("1234", "Frank", "frank@gmail.com", BorrowerStatus.ACTIVE)
     except:
         ValueError("User ID is non-numeric.")
+    
 
+    # Hardcoded secret value - this is a vulnerability (sensitive data stored in code)
     token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
 
+    # Shell command injection vulnerability - user input is passed directly to the system shell
     user_input = input("Enter a command to run: ")
     os.system(user_input)
 
+    # Code injection vulnerability - user input is evaluated as Python code
     eval(input("Enter an expression to evaluate: "))
 
 
-if __name__ == "__main__":
+if name == "__main__":
     main()
